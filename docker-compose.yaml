@@ -1,0 +1,7 @@
+version: "2"
+services:
+  wedding:
+    build: .
+    container_name: wedding
+    ports:
+      - 80:4000
