@@ -33,6 +33,22 @@
     <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+<!-- 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+
+
+
+<style>
+    .btn span.glyphicon {    			
+        opacity: 0;				
+    }
+    .btn.active span.glyphicon {				
+        opacity: 1;				
+    }</style>
+
 </head>
 <body id="top">
 <!--[if lt IE 8]>
@@ -485,14 +501,24 @@
             </div><!-- /.modal -->
         
             <div class="container">
+                <form id="rsvp-form" class="rsvp-form"
+                    action=""
+                    method="POST">
                 <div class="row">
+                    
                     <div class="col-md-6 col-md-offset-3">
                         <h3>What are you waiting for?</h3>
                         <p>We would greatly appreciate if you could RSVP before 1st of November '17</p>
-                        <form id="rsvp-form" class="rsvp-form"
-                              action=""
-                              method="POST">
-                            <div class="row">
+                        
+                        <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                        <div class="form-input-group">
+                                            <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
+                                                                            class="" min="0"
+                                                                            placeholder="Invite code"
+                                                                            required>
+                                    </div>
+                                </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-input-group">
                                         <i class="fa fa-envelope"></i><input type="email" name="email" class=""
@@ -500,15 +526,29 @@
                                                                              required>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="form-input-group">
-                                        <i class="fa fa-user"></i><input name="name" class=""
-                                                                         placeholder="Your name"
-                                                                         required>
-                                    </div>
-                                </div>
+
                             </div>
+                            
                             <div class="row">
+                                    <div class="col-md-6 col-sm-6">
+                                            <div class="form-input-group">
+                                                <i class="fa fa-users"></i><input type="number" name="total_guests" id="total_guests"
+                                                                                class="" min="1"
+                                                                                placeholder="Total Guests"
+                                                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-input-group">
+                                            <i class="fa fa-envelope"></i><input type="email" name="email" class=""
+                                                                                 placeholder="Your email"
+                                                                                 required>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                                
+                            <!-- <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-input-group">
                                         <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"
@@ -517,26 +557,109 @@
                                                                           required>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="form-input-group">
-                                        <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
-                                                                        class="" min="0"
-                                                                        placeholder="Invite code"
-                                                                        required>
-                                    </div>
-                                </div>
-                            </div>
+                                
+                            </div> -->
                             <div class="row">
                                 <div class="col-md-12" id="alert-wrapper"></div>
                             </div>
-                            <button class="btn-fill rsvp-btn">
-                                Yes,
-                                that's me!
-                            </button>
-                        </form>
                     </div>
-                </div>
+                    <div class="col-md-12">
+                            <div class="row">
+                                    <h3>Who's coming</h3>
+                                <table id="guestList" class="table order-list">
+                                    <thead>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Pembs Party</td>
+                                                <td>Spanish Ceremony</td>
+                                                <td></td>
+                                            </tr>
+                                        <!-- <tr>
+                                            <td>Name</td>
+                                            <td>Phone</td>
+                                            <td>Diet</td>
+                                            <td>Pembs Party</td>
+                                            <td>Spanish Ceremony</td>
+                                        </tr> -->
+                                    </thead>
+                                    <tbody>
+                                        <!-- <tr>
+                                            <td class="col">
+                                                    <div class="form-input-group">
+                                                            <i class="fa fa-user"></i><input type="name" name="name" class=""
+                                                                                                 placeholder="Person Name"
+                                                                                                 required>
+                                                    </div>
+                                            </td>
+                                            <td class="col">
+                                                    <div class="form-input-group">
+                                                            <i class="fa fa-mobile"></i>
+                                                            <input type="number" name="contectno" class="" placeholder="Contact No" required />
+                                                    </div>
+                                            </td>
+                                            <td class="col">
+                                                    <div class="form-input-group">
+                                                            
+                                                            <select>
+                                                                <option value="" hidden>Diet</option>
+                                                                <option value="carnivore" >Carnivore</option>
+                                                                <option value="vegan" >Vegan</option>
+                                                                <option value="vegetarian">Vegetarian</option>
+                                                                <option value="pescatarian">Pescatarian</option>
+                                                            </select>
+                                                    </div>
+                                                    
+                                            </td>
+                                            <td class="col">
+                                                
+                                                    <div class="btn-group align-middle" data-toggle="buttons">
+                                                            <label class="btn">
+                                                                    <input type="checkbox" name="pembswedding" autocomplete="off">
+                                                                    <span class="glyphicon glyphicon-glass"></span>
+                                                            </label>	
+                                                    </div>  
+                                            </td>
+                                            <td class="col">
+                                                    <div class="btn-group" data-toggle="buttons">
+                                                            <label class="btn">
+                                                                    <input type="checkbox" autocomplete="off">
+                                                                    <span class="glyphicon glyphicon-heart"></span>
+                                                                </label>	
+                                                    </div>  
+                                            </td>
+                                            <td class="col"><a class="deleteRow"></a></td>
+                                        </tr> -->
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                        <td colspan="5" style="text-align: right;">
+                                        <input type="button" class="btn " id="addperson" value="Add Person" />
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+
+                            </div>
+
+                    </div>
+                    <div class="col-md-6 col-md-offset-3">
+                            <button class="btn-fill rsvp-btn">
+                                That's Everyone, we're coming!
+                            </button>
+                            
+                        </div>
+                    </div>
+                </form>
+                
             </div>
+            
+            
+
+
         </section>
 <footer>
     <div class="container">
@@ -560,6 +683,54 @@
 <script src="js/scripts.min.js"></script>
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAepRHxUx5dTY7mmeZAkAJsxKN6qJepnTo&callback=initMap"></script>
+
+<script>
+    
+    $(document).ready(function () {
+        var counter = 0
+        
+        
+        
+        function addPersonRow(){
+            console.log('Counter:' + counter);
+            var newRow = $("<tr>");
+                var cols = "";
+                cols += '<td class="col"><div class="form-input-group"><i class="fa fa-user"></i><input type="name" name="name_'+counter+'" class="" placeholder="Person Name" required></div></td>';
+                cols += '<td class="col"><div class="form-input-group"><i class="fa fa-mobile"></i><input type="number" name="contactno_'+counter+'" class="" placeholder="Contact No" required /></div></td>';
+                cols += '<td class="col"><div class="form-input-group"><select name="diet_'+counter+'"><option value="" hidden>Diet</option><option value="carnivore" >Carnivore</option><option value="vegan" >Vegan</option><option value="vegetarian">Vegetarian</option><option value="pescatarian">Pescatarian</option></select></div></td>';
+                cols += '<td class="col"><div class="btn-group align-middle" data-toggle="buttons"><label class="btn"><input type="checkbox" name="pembswedding_'+counter+'" autocomplete="off"><span class="glyphicon glyphicon-glass"></span></label>	</div>  </td>';
+                cols += '<td class="col"><div class="btn-group" data-toggle="buttons"><label class="btn"><input type="checkbox" name="spanishceremony_'+counter+'" autocomplete="off"><span class="glyphicon glyphicon-heart"></span></label>	</div>  </td>';
+                if(counter > 0){
+                    cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+                }
+                newRow.append(cols);
+                $("table#guestList").append(newRow);
+                counter++;
+                $('#total_guests').val(counter);
+        }
+
+        
+
+        $("#addperson").on("click", function () {
+            addPersonRow(counter);
+        });
+    
+    
+    
+        $("table#guestList").on("click", ".ibtnDel", function (event) {
+            $(this).closest("tr").remove();       
+            console.log("Delete Counter:" + counter);
+            counter = counter - 1;
+            $('#total_guests').val(counter);
+        });
+
+
+
+        addPersonRow(counter);
+    
+    });
+    
+</script>
 <!-- Google Analytics -->
 <!-- <script>
     (function (i, s, o, g, r, a, m) {
@@ -576,5 +747,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAepRHxUx5dTY7mmeZAkAJsxKN
     ga('create', 'UA-46465113-4', 'auto');
     ga('send', 'pageview');
 </script> -->
+
+
 </body>
 </html>
