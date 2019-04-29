@@ -256,7 +256,7 @@ $(document).ready(function () {
         // console.log("FOUND ITEMS: "+ );
         // var data = $(this).serialize();
         console.log(JSON.stringify(postdata));
-        $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
+        $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> I\'m writing them down!'));
 
         if (MD5($('#invite_code').val()) !== '939cc0c71948d00d8a80d6a22ef3623a') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
