@@ -234,7 +234,8 @@ $(document).ready(function () {
                 diet: $(this).find('select[name=diet]').val(),
                 pembsparty: $(this).find('input[name=pembsparty]').val(),
                 spanishceremony: $(this).find('input[name=spanishceremony]').val(),
-                account: $(this).find('input[name=email]').val()
+                account: $(this).find('input[name=email]').val(),
+                totalguests: $(this).find('input[name=primary_totalguests]').val()
             };
             
             

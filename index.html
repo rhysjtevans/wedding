@@ -582,6 +582,7 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
+                                                <!-- <td></td> -->
                                                 <td>Pembs Party</td>
                                                 <td>Spanish Ceremony</td>
                                                 <td></td>
@@ -737,16 +738,11 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAepRHxUx5dTY7mmeZAkAJsxKN
         function addPersonRow(){
             var newRow = $('<tr id="'+counter+'">');
                 var cols = "";
-                /* cols += '<td class="col"><div class="form-input-group"><i class="fa fa-user"></i><input type="name" name="guest_'+counter+'_name" class="" placeholder="Person Name" required></div></td>';
-                cols += '<td class="col"><div class="form-input-group"><i class="fa fa-mobile"></i><input type="number" name="guest_'+counter+'_contactno" class="" placeholder="Contact No" required /></div></td>';
-                cols += '<td class="col"><div class="form-input-group"><select name="guest_'+counter+'_diet" required><option value="" hidden>Diet</option><option value="carnivore" >Carnivore</option><option value="vegan" >Vegan</option><option value="vegetarian">Vegetarian</option><option value="pescatarian">Pescatarian</option></select></div></td>';
-                cols += '<td class="col"><div class="btn-group align-middle" data-toggle="buttons"><label class="btn"><input type="checkbox" name="guest_'+counter+'_pembswedding" autocomplete="off"><span class="glyphicon glyphicon-glass"></span></label>	</div>  </td>';
-                cols += '<td class="col"><div class="btn-group" data-toggle="buttons"><label class="btn"><input type="checkbox" name="guest_'+counter+'_spanishceremonty" autocomplete="off"><span class="glyphicon glyphicon-heart"></span></label>	</div>  </td>'; */
-                
-                
-                cols += '<td class="col"><div class="form-input-group"><i class="fa fa-user"></i><input type="name" name="name" class="" placeholder="Person Name" required/></div></td>';
-                cols += '<td class="col"><div class="form-input-group"><i class="fa fa-mobile"></i><input type="number" name="contactno" class="" placeholder="Contact No" required /></div></td>';
+
+                cols += '<td class="col"><div class="form-input-group"><i class="fa fa-user"></i><input type="name" name="name" class="" placeholder="Full Name" required/></div></td>';
+                cols += '<td class="col"><div class="form-input-group"><i class="fa fa-mobile"></i><input type="number" name="contactno" class="" placeholder="Tel" required /></div></td>';
                 cols += '<td class="col"><div class="form-input-group"><select name="diet" required><option value="" hidden>Diet</option><option value="carnivore">Carnivore</option><option value="vegan" >Vegan</option><option value="vegetarian">Vegetarian</option><option value="pescatarian">Pescatarian</option></select></div></td>';
+                //cols += '<td class="col"><div class="form-input-group"><select name="party" required><option value="" hidden>Party</option><option value="carnivore">Rhys</option><option value="vegan" >Jo</option></select></div></td>';
                 cols += '<td class="col"><div class="btn-group align-middle" data-toggle="buttons"><label class="btn"><input type="checkbox" name="pembsparty" autocomplete="off"><span class="glyphicon glyphicon-glass"></span></label>	</div>  </td>';
                 cols += '<td class="col"><div class="btn-group" data-toggle="buttons"><label class="btn"><input type="checkbox" name="spanishceremony" autocomplete="off"><span class="glyphicon glyphicon-heart"></span></label>	</div>  </td>';
                 
