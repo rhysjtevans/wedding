@@ -228,12 +228,15 @@ $(document).ready(function () {
         var guests = [];
         $(this).find('tbody tr').each(function(index,item){
             // var arr = $(this).find('input, select').serializeArray();
+            var pembsparty = $(this).find('input[name=pembsparty]').parent().hasClass('active');
+            var spanishceremony = $(this).find('input[name=spanishceremony]').parent().hasClass('active');
+
             var guest = {
                 name: $(this).find('input[name=name]').val(),
                 contactno: $(this).find('input[name=contactno]').val(),
                 diet: $(this).find('select[name=diet]').val(),
-                pembsparty: $(this).find('input[name=pembsparty]').val(),
-                spanishceremony: $(this).find('input[name=spanishceremony]').val(),
+                pembsparty: pembsparty,
+                spanishceremony: spanishceremony,
                 account: $(this).find('input[name=email]').val(),
                 totalguests: $(this).find('input[name=primary_totalguests]').val()
             };
