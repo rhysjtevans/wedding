@@ -220,23 +220,35 @@ $(document).ready(function () {
     /********************** RSVP **********************/
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
-        var data = $(this).serialize();
-
+        var postdata = {};
+        var guests = [];
+        $(this).find('tbody tr').each(function(index,item){
+            var arr = $(this).find('input, select').serializeArray();
+            var t = {name:"account",value: $('input[name=email]').val()};
+            arr.push(t);
+            guests[$(this).attr('id')] = arr;
+        });
+        postdata["guests"] = guests;
+        postdata['invite_code'] = "Some INVITE CODE";
+        
+        // console.log("FOUND ITEMS: "+ );
+        // var data = $(this).serialize();
+        console.log(JSON.stringify(postdata));
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
 
         if (MD5($('#invite_code').val()) !== '939cc0c71948d00d8a80d6a22ef3623a') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         } else {
-            $.post('https://script.google.com/a/rhysevans.co.uk/macros/s/AKfycbxpW9SYg1LXpFq6R2cf9KElY3LsKB9HRwqG9ADa/exec', data)
-                .done(function (data) {
-                    console.log(data);
-                    $('#alert-wrapper').html('');
-                    $('#rsvp-modal').modal('show');
-                })
-                .fail(function (data) {
-                    console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
-                });
+            // $.post('https://script.google.com/a/rhysevans.co.uk/macros/s/AKfycbxpW9SYg1LXpFq6R2cf9KElY3LsKB9HRwqG9ADa/exec', data,'JSON')
+            //     .done(function (data) {
+            //         console.log(data);
+            //         $('#alert-wrapper').html('');
+            //         $('#rsvp-modal').modal('show');
+            //     })
+            //     .fail(function (data) {
+            //         console.log(data);
+            //         $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+            //     });
         }
     });
 
