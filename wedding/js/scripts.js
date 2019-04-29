@@ -220,16 +220,34 @@ $(document).ready(function () {
     /********************** RSVP **********************/
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
+        if($(this).find('tbody tr').length === 0){
+            $('#alert-wrapper').html(alert_markup('danger', 'There must be atleast one guest!'));
+            return 0;
+        }
         var postdata = {};
         var guests = [];
         $(this).find('tbody tr').each(function(index,item){
-            var arr = $(this).find('input, select').serializeArray();
-            var t = {name:"account",value: $('input[name=email]').val()};
-            arr.push(t);
-            guests[$(this).attr('id')] = arr;
+            // var arr = $(this).find('input, select').serializeArray();
+            var guest = {
+                name: $(this).find('input[name=name]').val(),
+                contactno: $(this).find('input[name=contactno]').val(),
+                diet: $(this).find('select[name=diet]').val(),
+                pembsparty: $(this).find('input[name=pembsparty]').val(),
+                spanishceremony: $(this).find('input[name=spanishceremony]').val(),
+                account: $(this).find('input[name=email]').val()
+            };
+            
+            
+            guests[$(this).attr('id')] = guest;
         });
         postdata["guests"] = guests;
-        postdata['invite_code'] = "Some INVITE CODE";
+        postdata["rsvp"] = {
+            invitecode: $(this).find('input[name=primary_invitecode]').val(),
+            email: $(this).find('input[name=primary_email]').val(),
+            totalguest: $(this).find('input[name=primary_totalguest]').val(),
+            questions: $(this).find('input[name=primary_questions]').val(),
+        };
+        // postdata['invite_code'] = "Some INVITE CODE";
         
         // console.log("FOUND ITEMS: "+ );
         // var data = $(this).serialize();
@@ -239,16 +257,16 @@ $(document).ready(function () {
         if (MD5($('#invite_code').val()) !== '939cc0c71948d00d8a80d6a22ef3623a') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         } else {
-            // $.post('https://script.google.com/a/rhysevans.co.uk/macros/s/AKfycbxpW9SYg1LXpFq6R2cf9KElY3LsKB9HRwqG9ADa/exec', data,'JSON')
-            //     .done(function (data) {
-            //         console.log(data);
-            //         $('#alert-wrapper').html('');
-            //         $('#rsvp-modal').modal('show');
-            //     })
-            //     .fail(function (data) {
-            //         console.log(data);
-            //         $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
-            //     });
+            $.post('https://script.google.com/a/rhysevans.co.uk/macros/s/AKfycbxpW9SYg1LXpFq6R2cf9KElY3LsKB9HRwqG9ADa/exec', JSON.stringify(postdata),'JSON')
+                .done(function (data) {
+                    console.log(data);
+                    $('#alert-wrapper').html('');
+                    $('#rsvp-modal').modal('show');
+                })
+                .fail(function (data) {
+                    console.log(data);
+                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+                });
         }
     });
 

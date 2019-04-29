@@ -513,16 +513,15 @@
                         <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                         <div class="form-input-group">
-                                            <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
+                                            <i class="fa fa-key"></i><input type="number" name="primary_invitecode" id="invite_code"
                                                                             class="generaldata" min="0"
                                                                             placeholder="Invite code"
-                                                                            value ="07805595190"
                                                                             >
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-input-group">
-                                        <i class="fa fa-envelope"></i><input type="email" name="email" class="generaldata"
+                                        <i class="fa fa-envelope"></i><input type="email" name="primary_email" class="generaldata"
                                                                              placeholder="Your email"
                                                                              value ="rhys@rhysevans.co.uk"
                                                                              >
@@ -534,23 +533,33 @@
                             <div class="row">
                                     <div class="col-md-6 col-sm-6">
                                             <div class="form-input-group">
-                                                <i class="fa fa-users"></i><input type="number" name="total_guests" id="total_guests"
+                                                <i class="fa fa-users"></i><input type="number" name="primary_totalguests" id="total_guests"
                                                                                 class="generaldata" min="1"
                                                                                 placeholder="Total Guests"
                                                                                 >
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
+                                        <!-- 
                                         <div class="form-input-group">
-                                            <!-- <i class="fa fa-envelope"></i><input type="email" name="email" class="generaldata"
+                                            <i class="fa fa-envelope"></i><input type="email" name="email" class="generaldata"
                                                                                  placeholder="Your email"
                                                                                  value ="rhys@rhysevans.co.uk"
-                                                                                 required> -->
-                                        </div>
+                                                                                 required>
+                                        </div>-->
                                     </div>
     
                                 </div>
-                                
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-input-group">
+                                        <i class="fa fa-question"></i><input type="text" name="primary_questions" id="questions"
+                                                                        class="generaldata"
+                                                                        placeholder="Any questions?"
+                                                                        >
+                                </div>
+                            </div>
+                            </div>    
                             <!-- <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-input-group">
@@ -562,9 +571,7 @@
                                 </div>
                                 
                             </div> -->
-                            <div class="row">
-                                <div class="col-md-12" id="alert-wrapper"></div>
-                            </div>
+                            
                     </div>
                     <div class="col-md-12">
                             <div class="row">
@@ -649,6 +656,11 @@
                             </div>
 
                     </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12" id="alert-wrapper"></div>
+                </div>
+                <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                             <button class="btn-fill rsvp-btn">
                                 That's Everyone, we're coming!
@@ -656,6 +668,8 @@
                             
                         </div>
                     </div>
+
+                    
                 </form>
                 
             </div>
@@ -730,9 +744,9 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAepRHxUx5dTY7mmeZAkAJsxKN
                 cols += '<td class="col"><div class="btn-group" data-toggle="buttons"><label class="btn"><input type="checkbox" name="guest_'+counter+'_spanishceremonty" autocomplete="off"><span class="glyphicon glyphicon-heart"></span></label>	</div>  </td>'; */
                 
                 
-                cols += '<td class="col"><div class="form-input-group"><i class="fa fa-user"></i><input type="name" name="name" class="" placeholder="Person Name" required value="test"/></div></td>';
-                cols += '<td class="col"><div class="form-input-group"><i class="fa fa-mobile"></i><input type="number" name="contactno" class="" placeholder="Contact No" required value="1231231" /></div></td>';
-                cols += '<td class="col"><div class="form-input-group"><select name="diet" required><option value="" hidden>Diet</option><option value="carnivore" selected>Carnivore</option><option value="vegan" >Vegan</option><option value="vegetarian">Vegetarian</option><option value="pescatarian">Pescatarian</option></select></div></td>';
+                cols += '<td class="col"><div class="form-input-group"><i class="fa fa-user"></i><input type="name" name="name" class="" placeholder="Person Name" required/></div></td>';
+                cols += '<td class="col"><div class="form-input-group"><i class="fa fa-mobile"></i><input type="number" name="contactno" class="" placeholder="Contact No" required /></div></td>';
+                cols += '<td class="col"><div class="form-input-group"><select name="diet" required><option value="" hidden>Diet</option><option value="carnivore">Carnivore</option><option value="vegan" >Vegan</option><option value="vegetarian">Vegetarian</option><option value="pescatarian">Pescatarian</option></select></div></td>';
                 cols += '<td class="col"><div class="btn-group align-middle" data-toggle="buttons"><label class="btn"><input type="checkbox" name="pembswedding" autocomplete="off"><span class="glyphicon glyphicon-glass"></span></label>	</div>  </td>';
                 cols += '<td class="col"><div class="btn-group" data-toggle="buttons"><label class="btn"><input type="checkbox" name="spanishceremony" autocomplete="off"><span class="glyphicon glyphicon-heart"></span></label>	</div>  </td>';
                 
@@ -772,7 +786,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAepRHxUx5dTY7mmeZAkAJsxKN
         addPersonRow(counter);
     
     });
-    
 </script>
 <!-- Google Analytics -->
 <!-- <script>
