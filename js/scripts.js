@@ -248,7 +248,7 @@ $(document).ready(function () {
         postdata["rsvp"] = {
             invitecode: $(this).find('input[name=primary_invitecode]').val(),
             email: $(this).find('input[name=primary_email]').val(),
-            totalguest: $(this).find('input[name=primary_totalguest]').val(),
+            totalguests: $(this).find('input[name=primary_totalguests]').val(),
             questions: $(this).find('input[name=primary_questions]').val(),
         };
         // postdata['invite_code'] = "Some INVITE CODE";
