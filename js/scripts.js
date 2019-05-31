@@ -280,7 +280,7 @@ $(document).ready(function () {
 
 // Google map
 function initMap() {
-    var pembsVenue = {lat: 22.5932759, lng: 88.27027720000001};
+    var pembsVenue = {lat: 51.7125853, lng:-5.0393697 };
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 15,
         center: pembsVenue,
