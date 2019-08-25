@@ -250,6 +250,7 @@ $(document).ready(function () {
             email: $(this).find('input[name=primary_email]').val(),
             totalguests: $(this).find('input[name=primary_totalguests]').val(),
             questions: $(this).find('input[name=primary_questions]').val(),
+            uuid: generateUUID()
         };
         // postdata['invite_code'] = "Some INVITE CODE";
         
@@ -280,7 +281,7 @@ $(document).ready(function () {
 
 // Google map
 function initMap() {
-    var pembsVenue = {lat: 51.7125853, lng:-5.0393697 };
+    var pembsVenue = {lat: 51.64309, lng:-4.8731127 };
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 15,
         center: pembsVenue,
@@ -350,7 +351,21 @@ function initMap() {
 //         map: map
 //     });
 // }
-
+function generateUUID() { // Public Domain/MIT
+    var d = new Date().getTime();//Timestamp
+    var d2 = (performance && performance.now && (performance.now()*1000)) || 0;//Time in microseconds since page-load or 0 if unsupported
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16;//random number between 0 and 16
+        if(d > 0){//Use timestamp until depleted
+            r = (d + r)%16 | 0;
+            d = Math.floor(d/16);
+        } else {//Use microseconds since page-load if supported
+            r = (d2 + r)%16 | 0;
+            d2 = Math.floor(d2/16);
+        }
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+}
 // alert_markup
 function alert_markup(alert_type, msg) {
     return '<div class="alert alert-' + alert_type + '" role="alert">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button></div>';
