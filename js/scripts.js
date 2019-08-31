@@ -185,8 +185,8 @@ $(document).ready(function () {
         $('#btn-show-content-villa').toggleClass('toggle-map-content');
     });
 
-    /********************** Add to Calendar **********************/
-    var myCalendar = createCalendar({
+    /********************** Add to Calendar Pembs Party **********************/
+    var myCalendarPembs = createCalendar({
         options: {
             class: '',
             // You can pass an ID. If you don't, one will be generated for you
@@ -194,17 +194,48 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Ram and Antara's Wedding",
+            title: 'Rhys %26 Jo Pembrokeshire Party',
 
             // Event start date
-            start: new Date('Nov 27, 2017 10:00'),
+            start: new Date('Sept 12, 2020 19:00:00'),
+
+            // Event duration (IN MINUTES)
+            // duration: 120,
+            caption: "Add to Calendar - Pembs Party",
+            // You can also choose to set an end time
+            // If an end time is set, this will take precedence over duration
+            end: new Date('Sept 13, 2020 00:00'),
+
+            // Event Address
+            address: 'Long House, Freshwater East, Pembrokeshire',
+
+            // Event Description
+            description: "Contact details"
+        }
+    });
+
+    $('#add-to-cal-pembs').html(myCalendarPembs);
+
+    /********************** Add to Calendar Wedding **********************/
+    var myCalendarSpain = createCalendar({
+        options: {
+            class: '',
+            // You can pass an ID. If you don't, one will be generated for you
+            id: ''
+        },
+        data: {
+            // Event title
+            title: "Rhys %26 Jo's Spannish Wedding",
+            caption: "Add to Calendar - Spanish Wedding",
+            // Event start date
+            start: new Date('Oct 02, 2020 14:00:00'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('Nov 29, 2017 00:00'),
+            end: new Date('Oct 02, 2020 23:00:00'),
 
             // Event Address
             address: 'ITC Fortune Park Hotel, Kolkata',
@@ -214,7 +245,7 @@ $(document).ready(function () {
         }
     });
 
-    $('#add-to-cal').html(myCalendar);
+    $('#add-to-cal-spain').html(myCalendarSpain);
 
 
     /********************** RSVP **********************/
