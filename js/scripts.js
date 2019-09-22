@@ -194,7 +194,7 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: 'Rhys %26 Jo Pembrokeshire Party',
+            title: 'Rhys and Jo Pembrokeshire Party',
 
             // Event start date
             start: new Date('Sept 12, 2020 19:00:00'),
@@ -225,10 +225,10 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Rhys %26 Jo's Spannish Wedding",
-            caption: "Add to Calendar - Spanish Wedding",
+            title: "Rhys and Jo's Spannish Wedding",
+            caption: "Add to Calendar - Spannish Wedding",
             // Event start date
-            start: new Date('Oct 02, 2020 14:00:00'),
+            start: new Date('Oct 02, 2020 10:00:00'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
@@ -238,7 +238,7 @@ $(document).ready(function () {
             end: new Date('Oct 02, 2020 23:00:00'),
 
             // Event Address
-            address: 'ITC Fortune Park Hotel, Kolkata',
+            address: 'Silverfield Villa, Calle Güejar Sierra, 2, 18140 La Zubia, Granada, Spain',
 
             // Event Description
             description: "We can't wait to see you on our big day. For any queries or issues contact Mr. Amit Roy at +91 9435021804 or +91 7086018971."
