@@ -225,8 +225,8 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Rhys and Jo's Spannish Wedding",
-            caption: "Add to Calendar - Spannish Wedding",
+            title: "Rhys and Jo's Spanish Wedding",
+            caption: "Add to Calendar - Spanish Wedding",
             // Event start date
             start: new Date('Oct 02, 2020 10:00:00'),
 
